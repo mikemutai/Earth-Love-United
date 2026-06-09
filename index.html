@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Love United | Global Regenerative Sustainability Foundation</title>
+    <link rel="icon" type="image/png" href="ELU_LOGO_v3.png">
+    <meta name="description" content="Earth Love United (ELU) - A global regenerative sustainability foundation driving planetary healing through research, carbon credits, and sustainable innovation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0A0E0C;
+            --mint: #7DF9C8;
+            --cyan: #00CED1;
+            --gradient: linear-gradient(135deg, #7DF9C8, #00CED1);
+            --text: #F8FBFA;
+            --text-muted: rgba(248, 251, 250, 0.6);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(125, 249, 200, 0.3);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: 0.25s ease;
+            --transition-slow: 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 0;
+            background: rgba(10, 14, 12, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .nav-logo-text span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width var(--transition-slow);
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-mobile {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 12, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem;
+        }
+
+        .nav-mobile.active {
+            display: block;
+        }
+
+        .nav-mobile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-mobile-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color var(--transition);
+        }
+
+        .nav-mobile-link:hover {
+            color: var(--mint);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--bg-dark);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--mint);
+            border: 2px solid transparent;
+            background-image: linear-gradient(var(--bg-dark), var(--bg-dark)), var(--gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .btn-secondary:hover {
+            background-image: linear-gradient(rgba(125, 249, 200, 0.1), rgba(0, 206, 209, 0.1)), var(--gradient);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-eyebrow span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* About Section */
+        .about-mission {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .about-mission strong {
+            color: var(--text);
+        }
+
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all var(--transition);
+        }
+
+        .value-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(125, 249, 200, 0.08);
+        }
+
+        .value-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            color: var(--mint);
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-text {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-text {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .vision-box {
+            padding: 2.5rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-hover);
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+        }
+
+        .vision-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--mint);
+            margin-bottom: 1rem;
+        }
+
+        .vision-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .research-card {
+            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all var(--transition);
+        }
+
+        .research-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(125, 249, 200, 0.08);
+        }
+
+        .research-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--mint);
+            margin-bottom: 1rem;
+        }
+
+        .research-title {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-desc {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Token Section */
+        .token-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .token-features {
+            list-style: none;
+        }
+
+        .token-feature {
+            display: flex;
+            gap: 1rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .token-feature:last-child {
+            border-bottom: none;
+        }
+
+        .token-feature-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--mint);
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .token-feature-content h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .token-feature-content p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .token-card {
+            padding: 2.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-hover);
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .token-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--bg-dark);
+        }
+
+        .token-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .token-tag {
+            color: var(--mint);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .token-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .token-stat {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-sm);
+        }
+
+        .token-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .token-stat-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        /* Carbon Section */
+        .carbon-hero {
+            text-align: center;
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        .carbon-stat {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .carbon-label {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        .carbon-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .carbon-card {
+            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all var(--transition);
+        }
+
+        .carbon-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+
+        .carbon-card-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--mint);
+            margin-bottom: 1rem;
+        }
+
+        .carbon-card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .carbon-card-text {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all var(--transition);
+        }
+
+        .team-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--bg-dark);
+            padding: 3px;
+        }
+
+        .team-avatar-inner {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            color: var(--mint);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .form-input,
+        .form-textarea {
+            padding: 0.875rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all var(--transition);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--mint);
+            box-shadow: 0 0 0 3px rgba(125, 249, 200, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-detail:last-child {
+            border-bottom: none;
+        }
+
+        .contact-detail-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--mint);
+        }
+
+        .contact-detail-text {
+            color: var(--text-muted);
+        }
+
+        .contact-detail-text a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .contact-detail-text a:hover {
+            color: var(--mint);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .footer-logo-text span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--mint);
+        }
+
+        .footer-copyright {
+            width: 100%;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .token-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .token-card {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 7rem 0 4rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .about-values {
+                grid-template-columns: 1fr;
+            }
+
+            .research-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .carbon-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .token-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">
+                    <img src="ELU_LOGO_v3.png" alt="Earth Love United Logo">
+                    <span class="nav-logo-text">Earth<span>Love</span>United</span>
+                </a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#token" class="nav-link">Token</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i data-lucide="menu" width="24" height="24"></i>
+            </button>
+        </div>
+        <div class="nav-mobile">
+            <ul class="nav-mobile-links">
+                <li><a href="#about" class="nav-mobile-link">About</a></li>
+                <li><a href="#research" class="nav-mobile-link">Research</a></li>
+                <li><a href="#token" class="nav-mobile-link">Token</a></li>
+                <li><a href="#team" class="nav-mobile-link">Team</a></li>
+                <li><a href="#contact" class="nav-mobile-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <p class="hero-eyebrow">Global Regenerative Foundation · <span>earthloveunited.org</span></p>
+            <h1 class="hero-title">Where Planetary Healing Meets Elite Impact</h1>
+            <p class="hero-subtitle">Earth Love United drives global regeneration through cutting-edge research, verified carbon credits, and sustainable innovation across four major registries.</p>
+            <div class="hero-ctas">
+                <a href="#research" class="btn btn-primary">
+                    <i data-lucide="leaf" width="18" height="18"></i>
+                    Explore Research
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i data-lucide="mail" width="18" height="18"></i>
+                    Get Involved
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">100M+</div>
+                    <div class="stat-label">Carbon Credits</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Global Registries</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">Research Areas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About <span class="gradient-text">ELU</span></h2>
+            <p class="section-subtitle">Pioneering sustainable solutions for a regenerating planet</p>
+            <p class="about-mission">
+                Earth Love United is a <strong>global regenerative sustainability foundation</strong> dedicated to healing our planet through science-driven initiatives, verified carbon offsetting, and community empowerment. We unite researchers, communities, and organizations in the fight against climate change.
+            </p>
+            <div class="about-values">
+                <div class="value-card">
+                    <i data-lucide="microscope" class="value-icon"></i>
+                    <h3 class="value-title">Scientific Rigor</h3>
+                    <p class="value-text">Evidence-based research and transparent methodologies ensure every initiative delivers measurable impact.</p>
+                </div>
+                <div class="value-card">
+                    <i data-lucide="globe" class="value-icon"></i>
+                    <h3 class="value-title">Global Reach</h3>
+                    <p class="value-text">Operating across multiple continents with partnerships in 4 major carbon registries worldwide.</p>
+                </div>
+                <div class="value-card">
+                    <i data-lucide="sprout" class="value-icon"></i>
+                    <h3 class="value-title">Regenerative Focus</h3>
+                    <p class="value-text">Moving beyond sustainability to actively restore ecosystems and regenerate environmental health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section id="mission" class="mission-vision">
+        <div class="container">
+            <div class="mission-content">
+                <h2 class="section-title">Our Mission & Vision</h2>
+                <p class="mission-text">
+                    We exist to accelerate the transition from extractive practices to regenerative systems. Through innovative research, strategic partnerships, and community engagement, we create scalable solutions that restore planetary health while empowering local communities.
+                </p>
+                <div class="vision-box">
+                    <p class="vision-label">Our Vision</p>
+                    <p class="vision-text">A world where human activity actively heals the planet—where every carbon credit, every research project, and every community initiative contributes to a thriving, regenerative future for all.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <div class="container">
+            <h2 class="section-title">Research <span class="gradient-text">Initiatives</span></h2>
+            <p class="section-subtitle">Seven core areas of environmental innovation driving real-world impact</p>
+            <div class="research-grid">
+                <div class="research-card">
+                    <i data-lucide="trees" class="research-icon"></i>
+                    <h3 class="research-title">Mangrove Restoration</h3>
+                    <p class="research-desc">Coastal ecosystem regeneration projects sequestering carbon while restoring marine habitats and protecting coastlines.</p>
+                </div>
+                <div class="research-card">
+                    <i data-lucide="wind" class="research-icon"></i>
+                    <h3 class="research-title">Algae Biofuels</h3>
+                    <p class="research-desc">Advanced algae cultivation systems converting CO2 into sustainable biofuels and high-value bioproducts.</p>
+                </div>
+                <div class="research-card">
+                    <i data-lucide="flame" class="research-icon"></i>
+                    <h3 class="research-title">Methane Capture</h3>
+                    <p class="research-desc">Innovative biogas recovery systems transforming agricultural and industrial waste into clean energy sources.</p>
+                </div>
+                <div class="research-card">
+                    <i data-lucide="flower-2" class="research-icon"></i>
+                    <h3 class="research-title">Biofertilizer Development</h3>
+                    <p class="research-desc">Natural soil enrichment solutions reducing dependency on synthetic fertilizers while improving crop yields.</p>
+                </div>
+                <div class="research-card">
+                    <i data-lucide="sun" class="research-icon"></i>
+                    <h3 class="research-title">Photovoltaic Innovation</h3>
+                    <p class="research-desc">Next-generation solar technology research maximizing energy capture efficiency and reducing installation costs.</p>
+                </div>
+                <div class="research-card">
+                    <i data-lucide="waves" class="research-icon"></i>
+                    <h3 class="research-title">Thalassa Initiative</h3>
+                    <p class="research-desc">Ocean health monitoring and restoration programs protecting marine biodiversity and blue carbon ecosystems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Token Section -->
+    <section id="token">
+        <div class="container">
+            <h2 class="section-title">ELU <span class="gradient-text">Token</span></h2>
+            <p class="section-subtitle">Powering the regenerative economy with transparent, impact-driven tokenomics</p>
+            <div class="token-content">
+                <ul class="token-features">
+                    <li class="token-feature">
+                        <i data-lucide="shield-check" class="token-feature-icon"></i>
+                        <div class="token-feature-content">
+                            <h4>Verified Carbon Offsets</h4>
+                            <p>Each token is backed by verified carbon credits from our registry partnerships, ensuring real environmental impact.</p>
+                        </div>
+                    </li>
+                    <li class="token-feature">
+                        <i data-lucide="users" class="token-feature-icon"></i>
+                        <div class="token-feature-content">
+                            <h4>Community Governance</h4>
+                            <p>Token holders participate in governance decisions, directing funding toward research initiatives and conservation projects.</p>
+                        </div>
+                    </li>
+                    <li class="token-feature">
+                        <i data-lucide="trending-up" class="token-feature-icon"></i>
+                        <div class="token-feature-content">
+                            <h4>Regenerative Staking</h4>
+                            <p>Stake tokens to support ongoing projects and earn rewards while contributing to measurable environmental restoration.</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="token-card">
+                    <div class="token-logo">ELU</div>
+                    <h3 class="token-name">Earth Love United Token</h3>
+                    <p class="token-tag">Powering Planetary Healing</p>
+                    <div class="token-stats">
+                        <div class="token-stat">
+                            <p class="token-stat-label">Total Supply</p>
+                            <p class="token-stat-value">1,000,000,000</p>
+                        </div>
+                        <div class="token-stat">
+                            <p class="token-stat-label">Token Standard</p>
+                            <p class="token-stat-value">ERC-20</p>
+                        </div>
+                        <div class="token-stat">
+                            <p class="token-stat-label">Registry Backed</p>
+                            <p class="token-stat-value">4 Networks</p>
+                        </div>
+                        <div class="token-stat">
+                            <p class="token-stat-label">Annual Burn</p>
+                            <p class="token-stat-value">2% of Fees</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Portfolio Section -->
+    <section id="carbon">
+        <div class="container">
+            <div class="carbon-hero">
+                <p class="carbon-stat">100M+</p>
+                <p class="carbon-label">Verified Carbon Credits in Portfolio</p>
+            </div>
+            <div class="carbon-cards">
+                <div class="carbon-card">
+                    <i data-lucide="award" class="carbon-card-icon"></i>
+                    <h3 class="carbon-card-title">Premium Registry Partnerships</h3>
+                    <p class="carbon-card-text">Our credits are verified through Gold Standard, Verra, ACR, and CAR—ensuring the highest quality carbon offsets meeting international verification protocols.</p>
+                </div>
+                <div class="carbon-card">
+                    <i data-lucide="map-pin" class="carbon-card-icon"></i>
+                    <h3 class="carbon-card-title">Global Project Network</h3>
+                    <p class="carbon-card-text">From Amazon reforestation to Southeast Asian mangroves, our project portfolio spans continents, delivering measurable impact where it matters most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <h2 class="section-title">Leadership <span class="gradient-text">Team</span></h2>
+            <p class="section-subtitle">Dedicated experts committed to planetary regeneration</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="team-avatar-inner">EO</div>
+                    </div>
+                    <h3 class="team-name">Ekmel</h3>
+                    <p class="team-role">Founder & Executive Director</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="team-avatar-inner">BG</div>
+                    </div>
+                    <h3 class="team-name">Brandon</h3>
+                    <p class="team-role">Director of Research</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="team-avatar-inner">MM</div>
+                    </div>
+                    <h3 class="team-name">Mike</h3>
+                    <p class="team-role">Head of Partnerships</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in <span class="gradient-text">Touch</span></h2>
+            <p class="section-subtitle">Join our mission to heal the planet</p>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Name</label>
+                        <input type="text" id="name" class="form-input" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea id="message" class="form-textarea" placeholder="How would you like to contribute?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i data-lucide="send" width="18" height="18"></i>
+                        Send Message
+                    </button>
+                </form>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-details">
+                        <li class="contact-detail">
+                            <i data-lucide="mail" class="contact-detail-icon"></i>
+                            <div class="contact-detail-text">
+                                <a href="mailto:info@earthloveunited.org">info@earthloveunited.org</a>
+                            </div>
+                        </li>
+                        <li class="contact-detail">
+                            <i data-lucide="globe" class="contact-detail-icon"></i>
+                            <div class="contact-detail-text">
+                                <a href="https://earthloveunited.org" target="_blank" rel="noopener">earthloveunited.org</a>
+                            </div>
+                        </li>
+                        <li class="contact-detail">
+                            <i data-lucide="map-pin" class="contact-detail-icon"></i>
+                            <div class="contact-detail-text">
+                                Global Headquarters
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="footer-logo">
+                    <img src="ELU_LOGO_v3.png" alt="Earth Love United Logo">
+                    <span class="footer-logo-text">Earth<span>Love</span>United</span>
+                </a>
+                <ul class="footer-links">
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#research" class="footer-link">Research</a></li>
+                    <li><a href="#token" class="footer-link">Token</a></li>
+                    <li><a href="#team" class="footer-link">Team</a></li>
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+            <p class="footer-copyright">© 2026 Earth Love United. All rights reserved. Building a regenerative future for our planet.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMobile = document.querySelector('.nav-mobile');
+        
+        navToggle.addEventListener('click', () => {
+            navMobile.classList.toggle('active');
+            const icon = navToggle.querySelector('i');
+            if (navMobile.classList.contains('active')) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        });
+
+        // Close mobile nav when clicking a link
+        document.querySelectorAll('.nav-mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMobile.classList.remove('active');
+                const icon = navToggle.querySelector('i');
+                icon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Show success feedback
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Message Sent!';
+            btn.style.background = '#7DF9C8';
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                lucide.createIcons();
+                contactForm.reset();
+            }, 3000);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
